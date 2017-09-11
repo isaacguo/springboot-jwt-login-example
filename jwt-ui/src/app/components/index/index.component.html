@@ -1,0 +1,35 @@
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+  <ul class="nav navbar-top-links navbar-right">
+
+    <!-- /.dropdown -->
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+      </a>
+      <ul class="dropdown-menu dropdown-user">
+        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+        </li>
+        <li class="divider"></li>
+        <li *ngIf="!!!(username | async)"><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Login</a>
+        </li>
+        <li *ngIf="!!(username | async)"><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+        </li>
+      </ul>
+      <!-- /.dropdown-user -->
+    </li>
+    <!-- /.dropdown -->
+  </ul>
+</nav>
+
+
+<div class="container">
+  <div class="div">
+    <button *ngIf="!!!(username | async)" type="button" class="btn btn-default" (click)="btnLogin()">Login</button>
+    <button *ngIf="!!(username | async)" type="button" class="btn btn-info" (click)="btnLogout()">Logout</button>
+  </div>
+  <div class="row">
+    <h3 *ngIf="!!(username | async)">
+      Hello, {{username | async}}.
+    </h3>
+  </div>
+</div>
