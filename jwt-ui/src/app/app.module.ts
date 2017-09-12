@@ -10,6 +10,8 @@ import {HttpModule} from "@angular/http";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import {AuthGuardService} from "./services/auth-guard.service";
 import {AuthService} from "./services/auth.service";
+import {AuthHttpService} from "./services/auth-http.service";
+import {BookService} from "./services/book.service";
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import {AuthService} from "./services/auth.service";
     {provide: LocationStrategy, useClass: HashLocationStrategy},
     AuthGuardService,
     AuthService,
+    AuthHttpService,
+    BookService
   ],
   bootstrap: [AppComponent]
 })
