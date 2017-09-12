@@ -16,7 +16,7 @@ export class AuthHttpService {
     return 'Bearer '+ localStorage.getItem("authToken");
   }
 
-  public get(url: string, options?: RequestOptionsArgs): Rx.Observable<Response> {
+  public get(url: string, options?: RequestOptionsArgs): Rx.Observable<any> {
     return this._request(RequestMethod.Get, url, null, options);
   }
 
@@ -40,7 +40,7 @@ export class AuthHttpService {
     return this._request(RequestMethod.Head, url, null, options);
   }
 
-  private _request(method: RequestMethod, url: string, body?: string, options?: RequestOptionsArgs): Rx.Observable<Response> {
+  private _request(method: RequestMethod, url: string, body?: string, options?: RequestOptionsArgs): Rx.Observable<any> {
     let requestOptions = new RequestOptions(Object.assign({
       method: method,
       url: url,

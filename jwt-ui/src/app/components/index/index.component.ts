@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {AuthService} from "../../services/auth.service";
 import {BookService} from "../../services/book.service";
+import {Book} from "../../models/Book";
 
 @Component({
   selector: 'app-index',
@@ -11,6 +12,7 @@ import {BookService} from "../../services/book.service";
 export class IndexComponent implements OnInit {
 
   username: Observable<string>;
+  books: Book[];
 
   constructor(private authService: AuthService, private bookService: BookService) {
     this.username = this.authService.usernameEmitter;
@@ -31,9 +33,9 @@ export class IndexComponent implements OnInit {
   }
 
   btnGetBooks() {
-    this.bookService.getBooks().subscribe(r => {
-      console.log(r);
-    });
+    this.bookService.getBooks().subscribe(next => {
+      this.books=<Book[]>next;
+      console.log(this.books);
+      });
   }
-
 }

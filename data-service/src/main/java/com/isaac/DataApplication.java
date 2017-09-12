@@ -37,6 +37,7 @@ public class DataApplication {
     }
 }
 
+/*
 @Configuration
 class WebConfig extends WebMvcConfigurerAdapter {
 
@@ -45,3 +46,4 @@ class WebConfig extends WebMvcConfigurerAdapter {
         registry.addMapping("/**");
     }
 }
+*/

@@ -12,8 +12,8 @@ export class BookService {
 
   }
 
-  getBooks(): Observable<Book[]> {
-    return this.authHttpService.get("http://localhost:8082/books").map(this.extractData).catch(this.handleError);
+  getBooks():Observable<any> {
+     return this.authHttpService.get("http://localhost:8082/books");
   }
 
   private extractData(res: Response) {
